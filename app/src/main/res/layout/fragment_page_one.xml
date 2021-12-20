@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="FragmentPageOneDataBinding">
+        <variable
+            name="namedatabinding_one"
+            type="com.dev_marinov.sender.FragmentPageOneDataBindingView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clFragPageOne"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:background="@color/white"
+       >
+
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/edtPhone"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:inputType="number"
+            android:hint="+7("
+            app:met_mask="+7(###) ###-##-##"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/cl_edtMessage"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_edtMessage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btSend"
+
+            >
+
+            <EditText
+                android:id="@+id/edtMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="20"
+                android:padding="5dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:background="@drawable/rounded_edittext"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <Button
+            android:id="@+id/btSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="@{namedatabinding_one.btSend}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

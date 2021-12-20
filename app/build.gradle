@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.dev_marinov.sender"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+
+    // ViewBinding генерирует только ViewBinding ваших файлов макета, поэтому вы можете ссылаться
+    // на представления без использования findViewById .
+    //DataBinding предоставляет вам то же самое, но с дополнительными функциями, такими как выражения
+    // data-binding (помещая общую логику Java в XML), общая переменная данных для целого xml, аннотации и т. д.
+    //Так когда же их использовать?
+    //Если вам просто нужно получить доступ к представлениям в вашем коде Java без какой-либо
+    // сложной/повторяющейся логики представления (например, изменить видимость нескольких представлений
+    // на основе одной переменной данных), то вы должны использовать ViewBinding , так как он легче и быстрее.
+    //Но в случае, если вам нужно больше, чем просто доступ к представлениям, таким как выражения привязки,
+    // адаптеры привязки и т. д. (что является общим требованием больших проектов). Вы должны использовать
+    // DataBinding , так как он предоставляет больше возможностей.
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+//    viewBinding{
+//        enabled = true
+//    }
+}
+
+
+
+
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'com.github.santalu:mask-edittext:1.1.1'
+//    implementation 'com.sun.mail.android.mail:1.6.7'
+//    implementation 'com.sun.mail.android.activation:1.6.7'
+
+
+//    // новое
+//    implementation  'javax.mail:javax.mail-api:1.5.3'
+//    implementation files ('libs/activation.jar')
+//    implementation files ('libs/additionnal.jar')
+//    implementation files ('libs/mail.jar')
+//
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'com.loopj.android:android-async-http:1.4.11' // библиотека для http запросов, при подклччению к сайту
+
+
+
+}
